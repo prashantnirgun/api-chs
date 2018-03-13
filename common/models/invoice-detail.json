@@ -1,0 +1,54 @@
+{
+  "name": "invoice_detail",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "invoice_id": {
+      "type": "string",
+      "required": true
+    },
+    "gl_id": {
+      "type": "string",
+      "required": true
+    },
+    "debit_credit_id": {
+      "type": "string",
+      "required": true
+    },
+    "debit": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "credit": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "invoice": {
+      "type": "belongsTo",
+      "model": "invoice",
+      "foreignKey": "invoice_id"
+    },
+    "generalLedger": {
+      "type": "belongsTo",
+      "model": "general_ledger",
+      "foreignKey": "gl_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

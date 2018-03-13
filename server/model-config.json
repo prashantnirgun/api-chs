@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Building": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Flat": {
+    "dataSource": "db",
+    "public": true
+  },
+  "account_format": {
+    "dataSource": "db",
+    "public": true
+  },
+  "account_group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "tax": {
+    "dataSource": "db",
+    "public": true
+  },
+  "column_property": {
+    "dataSource": "db",
+    "public": true
+  },
+  "comittee": {
+    "dataSource": "db",
+    "public": true
+  },
+  "general_ledger": {
+    "dataSource": "db",
+    "public": true
+  },
+  "invoice": {
+    "dataSource": "db",
+    "public": true
+  },
+  "invoice_detail": {
+    "dataSource": "db",
+    "public": true
+  },
+  "voucher": {
+    "dataSource": "db",
+    "public": true
+  },
+  "voucher_detail": {
+    "dataSource": "db",
+    "public": true
+  },
+  "meeting": {
+    "dataSource": "db",
+    "public": true
+  },
+  "meeting_detail": {
+    "dataSource": "db",
+    "public": true
+  },
+  "menu": {
+    "dataSource": "db",
+    "public": true
+  },
+  "nominee": {
+    "dataSource": "db",
+    "public": true
+  },
+  "vehical": {
+    "dataSource": "db",
+    "public": true
+  },
+  "voucher_type": {
+    "dataSource": "db",
+    "public": true
+  },
+  "member": {
+    "dataSource": "db",
+    "public": true
+  },
+  "bank": {
+    "dataSource": "db",
+    "public": true
+  },
+  "document": {
+    "dataSource": "db",
+    "public": true
+  },
+  "notice": {
+    "dataSource": "db",
+    "public": true
+  },
+  "tax_rate": {
+    "dataSource": "db",
+    "public": false
+  },
+  "tax_detail": {
+    "dataSource": "db",
+    "public": false
+  }
+}

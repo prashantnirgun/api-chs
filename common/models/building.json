@@ -1,0 +1,44 @@
+{
+  "name": "Building",
+  "plural": "buildings",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "building_name": {
+      "type": "string",
+      "required": true
+    },
+    "registration_no": {
+      "type": "string",
+      "required": false
+    },
+    "no_of_flat": {
+      "type": "number",
+      "required": true
+    },
+    "no_of_floor": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "flats": {
+      "type": "hasMany",
+      "model": "Flat",
+      "foreignKey": "building_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

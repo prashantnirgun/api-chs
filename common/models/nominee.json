@@ -1,0 +1,60 @@
+{
+  "name": "nominee",
+  "plural": "nominees",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "required": true
+    },
+    "nominee_name": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "relationship": {
+      "type": "string"
+    },
+    "major_minor_id": {
+      "type": "string"
+    },
+    "age": {
+      "type": "number"
+    },
+    "contact_no": {
+      "type": "string"
+    },
+    "guardian_name": {
+      "type": "string"
+    },
+    "guardian_relationship": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "member": {
+      "type": "belongsTo",
+      "model": "member",
+      "foreignKey": "member_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

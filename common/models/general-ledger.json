@@ -1,0 +1,68 @@
+{
+  "name": "general_ledger",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "gl_name": {
+      "type": "string",
+      "required": true
+    },
+    "alias": {
+      "type": "string"
+    },
+    "opening_debit_credit_id": {
+      "type": "string",
+      "required": true
+    },
+    "opening": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "debit": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "credit": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "closing": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "invoiceDetails": {
+      "type": "hasMany",
+      "model": "invoice_detail",
+      "foreignKey": "gl_id"
+    },
+    "taxes": {
+      "type": "hasMany",
+      "model": "tax",
+      "foreignKey": "gl_id"
+    },
+    "voucherDetails": {
+      "type": "hasMany",
+      "model": "voucher_detail",
+      "foreignKey": "gl_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

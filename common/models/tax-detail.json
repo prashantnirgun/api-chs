@@ -1,0 +1,28 @@
+{
+  "name": "tax_detail",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "base": {
+      "type": "string"
+    },
+    "wef_date": {
+      "type": "date",
+      "required": false
+    },
+    "residence": {
+      "type": "number"
+    },
+    "commercial": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

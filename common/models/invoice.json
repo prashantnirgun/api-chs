@@ -1,0 +1,88 @@
+{
+  "name": "invoice",
+  "plural": "invoices",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "no": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "amount": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "status_id": {
+      "type": "string",
+      "required": true
+    },
+    "member_id": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "member": {
+      "type": "belongsTo",
+      "model": "member",
+      "foreignKey": "member_id"
+    },
+    "invoiceDetails": {
+      "type": "hasMany",
+      "model": "invoice_detail",
+      "foreignKey": "invoice_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {
+    "generate_invoice": {
+      "accepts": [
+        {
+          "arg": "month",
+          "type": "date",
+          "required": true,
+          "description": "Enter the date for which you want to generate the invoice "
+        },
+        {
+          "arg": "member_id",
+          "type": "string",
+          "required": false,
+          "description": "If you want to specify specific member invoice to generate "
+        }
+      ],
+      "returns": [
+        {
+          "arg": "invoices",
+          "type": "array",
+          "root": false,
+          "description": "Generated invoices for the month "
+        }
+      ],
+      "description": "Generate Invoices for the month",
+      "http": [
+        {
+          "path": "/generate_invoice",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

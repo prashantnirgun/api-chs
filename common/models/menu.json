@@ -1,0 +1,51 @@
+{
+  "name": "menu",
+  "plural": "menus",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "string"
+    },
+    "menu_order_id": {
+      "type": "number"
+    },
+    "parent_id": {
+      "type": "number",
+      "required": true
+    },
+    "status_id": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Flat",
+  "plural": "flats",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "building_id": {
+      "type": "string",
+      "required": true
+    },
+    "flat_no": {
+      "type": "string",
+      "required": true
+    },
+    "area": {
+      "type": "number",
+      "required": true
+    },
+    "floor_no": {
+      "type": "string",
+      "required": true
+    },
+    "rented_status_id": {
+      "type": "string",
+      "required": true,
+      "default": "N"
+    },
+    "flat_type_id": {
+      "type": "string",
+      "required": true
+    },
+    "rent_start_date": {
+      "type": "date",
+      "required": false
+    },
+    "rent_end_date": {
+      "type": "date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "building": {
+      "type": "belongsTo",
+      "model": "Building",
+      "foreignKey": "building_id"
+    },
+    "member": {
+      "type": "hasOne",
+      "model": "member",
+      "foreignKey": "flat_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

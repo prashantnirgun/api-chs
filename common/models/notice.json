@@ -1,0 +1,63 @@
+{
+  "name": "notice",
+  "plural": "notices",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "serial_no": {
+      "type": "number",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "public_notice"
+    }
+  ],
+  "methods": {
+    "public_notice": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "array",
+          "root": false,
+          "description": ""
+        }
+      ],
+      "description": "notice issued to the member of the society",
+      "http": [
+        {
+          "path": "/public_notice",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

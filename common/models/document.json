@@ -1,0 +1,37 @@
+{
+  "name": "document",
+  "plural": "documents",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "file_name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "table_name": {
+      "type": "string"
+    },
+    "docuemnt_id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

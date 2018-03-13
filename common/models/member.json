@@ -1,0 +1,88 @@
+{
+  "name": "member",
+  "plural": "members",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dob": {
+      "type": "date"
+    },
+    "salutation_id": {
+      "type": "string"
+    },
+    "flat_id": {
+      "type": "string",
+      "required": true
+    },
+    "member_name": {
+      "type": "string",
+      "required": true
+    },
+    "status_id": {
+      "type": "string",
+      "required": true
+    },
+    "gender_id": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "required": false
+    },
+    "rmn": {
+      "type": "string"
+    },
+    "contact_no": {
+      "type": "string"
+    },
+    "flat_no": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "flats": {
+      "type": "belongsTo",
+      "model": "Flat",
+      "foreignKey": "flat_id"
+    },
+    "nominees": {
+      "type": "hasMany",
+      "model": "nominee",
+      "foreignKey": "member_id"
+    },
+    "banks": {
+      "type": "hasMany",
+      "model": "bank",
+      "foreignKey": "member_id"
+    },
+    "invoices": {
+      "type": "hasMany",
+      "model": "invoice",
+      "foreignKey": "member_id"
+    },
+    "vehicals": {
+      "type": "hasMany",
+      "model": "vehical",
+      "foreignKey": "member_id"
+    },
+    "comittees": {
+      "type": "hasOne",
+      "model": "comittee",
+      "foreignKey": "member_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,69 @@
+{
+  "name": "tax",
+  "plural": "taxes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "gl_id": {
+      "type": "string",
+      "required": true
+    },
+    "gl_name": {
+      "type": "string",
+      "required": true
+    },
+    "tax_name": {
+      "type": "string",
+      "required": true
+    },
+    "debit_credit_id": {
+      "type": "string",
+      "required": true
+    },
+    "base": {
+      "type": "string",
+      "required": true
+    },
+    "wef_date": {
+      "type": "date",
+      "required": true
+    }
+
+  },
+  "validations": [],
+  "relations": {
+    "generalLedger": {
+      "type": "belongsTo",
+      "model": "general_ledger",
+      "foreignKey": "gl_id"
+    },
+    "taxRate": {
+      "type": "embedsOne",
+      "model": "tax_rate",
+      "property" : "taxRate",
+      "options": {
+        "validate": false
+      }
+    },
+    "taxDetail": {
+      "type": "embedsMany",
+      "model": "tax_detail",
+      "property" : "taxDetailList",
+      "options": {
+      "validate": false
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

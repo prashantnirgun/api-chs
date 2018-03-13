@@ -1,0 +1,48 @@
+{
+  "name": "voucher_type",
+  "plural": "voucher_types",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "narration": {
+      "type": "string",
+      "required": true
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "start_no": {
+      "type": "number"
+    },
+    "suffix": {
+      "type": "string"
+    },
+    "reset_frequency_id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vouchers": {
+      "type": "hasMany",
+      "model": "voucher",
+      "foreignKey": "voucher_type_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
